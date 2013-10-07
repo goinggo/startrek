@@ -1,7 +1,7 @@
 package klingonbattle
 
 import (
-	"github.com/ArdanStudios/GoPackages/StarTrek/board"
+	"github.com/goinggo/StarTrek/board"
 	"math/rand"
 	"time"
 )

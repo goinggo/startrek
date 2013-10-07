@@ -9,8 +9,8 @@ package main
 */
 import "C"
 import (
-	"github.com/ArdanStudios/GoPackages/StarTrek/board"
-	"github.com/ArdanStudios/GoPackages/StarTrek/klingonbattle"
+	"github.com/goinggo/StarTrek/board"
+	"github.com/goinggo/StarTrek/klingonbattle"
 )
 
 func main() {
