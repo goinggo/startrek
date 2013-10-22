@@ -6,24 +6,22 @@ import (
 	"time"
 )
 
-type _KlingonBattle struct {
+type klingonBattle struct {
 	Shutdown        bool        // Set when the singleton is shutting down
 	ShutdownChannel chan string // Channel used to shutdown the work routine
 }
 
 type MoveKlingonShip struct {
-	KV, KH int
-
+	KV, KH                     int
 	TopLeftV, TopLeftH         int
 	BottomRightV, BottomRightH int
 }
 
-var _This *_KlingonBattle // Reference to the singleton
+var _This *klingonBattle // Reference to the singleton
 
 func Startup() (err error) {
-
 	// Create the singleton
-	_This = &_KlingonBattle{
+	_This = &klingonBattle{
 		Shutdown:        false,
 		ShutdownChannel: make(chan string),
 	}
@@ -37,7 +35,6 @@ func Startup() (err error) {
 }
 
 func Shutdown() (err error) {
-
 	_This.Shutdown = true
 
 	_This.ShutdownChannel <- "Down"
@@ -49,34 +46,27 @@ func Shutdown() (err error) {
 }
 
 func StartBattle() {
-
 }
 
 func EndBattle() {
-
 }
 
-func (this *_KlingonBattle) GoRoutine_Battle() {
-
+func (this *klingonBattle) GoRoutine_Battle() {
 	for {
 
 		select {
-
 		case <-this.ShutdownChannel:
-
 			this.ShutdownChannel <- "Down"
 			return
 
 		case <-time.After(250 * time.Millisecond):
-
 			this.MoveKlingonShip()
 			break
 		}
 	}
 }
 
-func (this *_KlingonBattle) MoveKlingonShip() {
-
+func (this *klingonBattle) MoveKlingonShip() {
 	var kV, kH int
 
 	topLeftV := 14
@@ -92,7 +82,6 @@ func (this *_KlingonBattle) MoveKlingonShip() {
 		if kH < topLeftH {
 			continue
 		}
-
 		break
 	}
 
@@ -102,7 +91,6 @@ func (this *_KlingonBattle) MoveKlingonShip() {
 		if kV < topLeftV {
 			continue
 		}
-
 		break
 	}
 

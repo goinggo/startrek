@@ -14,29 +14,24 @@ const (
 )
 
 func ClearScreen() {
-
 	fmt.Printf("%c[2J", ASCII_ESC)
 }
 
 func SetCommandPrompt() {
-
 	fmt.Printf("%c[%d;0H>:", ASCII_ESC, (BOARD_HEIGHT + 1))
 	fmt.Printf("%c[K", ASCII_ESC)
 }
 
 func MoveCursor(v int, h int) {
-
 	fmt.Printf("%c[%d;%dH", ASCII_ESC, v, h)
 }
 
 func PrintChar(v int, h int, ch string) {
-
 	fmt.Printf("%c[%d;%dH%s", ASCII_ESC, v, h, ch)
 	fmt.Printf("%c[%d;3H", ASCII_ESC, (BOARD_HEIGHT + 1))
 }
 
 func PrintHorizontalBorder(v int, h int, total int) {
-
 	fmt.Printf("%c[%d;%dH", ASCII_ESC, v, h)
 
 	for index := 0; index < total; index++ {
@@ -45,21 +40,18 @@ func PrintHorizontalBorder(v int, h int, total int) {
 }
 
 func PrintVeritcalBorder(v int, h int, total int) {
-
 	total = total + v
-	for line := v; line < total; line++ {
 
+	for line := v; line < total; line++ {
 		fmt.Printf("%c[%d;%dH=", ASCII_ESC, line, h)
 	}
 }
 
 func PrintDiagForward(v int, h int, total int) {
-
 	v1 := v
 	h1 := h
 
 	for line := 0; line < total; line++ {
-
 		fmt.Printf("%c[%d;%dH=", ASCII_ESC, v1, h1)
 
 		v1 = v1 + 1
@@ -68,12 +60,10 @@ func PrintDiagForward(v int, h int, total int) {
 }
 
 func PrintDiagBackward(v int, h int, total int) {
-
 	v1 := v
 	h1 := h
 
 	for line := 0; line < total; line++ {
-
 		fmt.Printf("%c[%d;%dH=", ASCII_ESC, v1, h1)
 
 		v1 = v1 + 1
@@ -82,7 +72,6 @@ func PrintDiagBackward(v int, h int, total int) {
 }
 
 func DrawGameBoard() {
-
 	DrawOuterFrame()
 	DrawFrontScreen()
 	DrawCompass()

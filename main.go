@@ -14,7 +14,6 @@ import (
 )
 
 func main() {
-
 	C.InitKeyboard()
 
 	board.DrawGameBoard()
@@ -29,9 +28,7 @@ func main() {
 }
 
 func AcceptInput() {
-
 	for {
-
 		board.SetCommandPrompt()
 
 		//left := fmt.Sprintf("%c[D", ASCII_ESC)
